@@ -14,6 +14,7 @@ import { navItems } from "../config/constants";
 import { useState } from "react";
 import { Close } from "@mui/icons-material";
 import FingerprintIcon from "@mui/icons-material/Fingerprint";
+import { Typography } from "@mui/material";
 
 interface Props {
 	window?: () => Window;
@@ -31,6 +32,9 @@ const Navbar = ({ window }: Props) => {
 			<Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingX: "20px" }}>
 				<Box sx={{ my: 2, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
 					<FingerprintIcon />
+					<Typography sx={{ marginLeft: "5px", fontWeight: "bold" }} variant="h5">
+						NEXT
+					</Typography>
 				</Box>
 				<Close />
 			</Box>
@@ -50,8 +54,8 @@ const Navbar = ({ window }: Props) => {
 	const container = window !== undefined ? () => window().document.body : undefined;
 
 	return (
-		<Box height={"10vh"} sx={{ display: "flex" }}>
-			<AppBar component="nav">
+		<Box height={"10vh"} sx={{ display: "flex", alignItems: "center" }}>
+			<AppBar sx={{ height: "10vh", backgroundColor: "#141414" }} component="nav">
 				<Toolbar>
 					<IconButton
 						color="inherit"
@@ -61,8 +65,11 @@ const Navbar = ({ window }: Props) => {
 						sx={{ mr: 2, display: { sm: "none" } }}>
 						<MenuIcon />
 					</IconButton>
-					<Box component="div" sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}>
+					<Box component="div" sx={{ flexGrow: 1, display: { xs: "none", sm: "flex" }, alignItems: "center" }}>
 						<FingerprintIcon />
+						<Typography sx={{ marginLeft: "5px", fontWeight: "bold" }} variant="h5">
+							NEXT
+						</Typography>
 					</Box>
 					<Box sx={{ display: { xs: "none", sm: "block" } }}>
 						{navItems.map((item) => (

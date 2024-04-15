@@ -10,7 +10,7 @@ const Footer = () => {
 				display: "flex",
 				justifyContent: "center",
 				alignItems: "center",
-				backgroundColor: "primary.main",
+				backgroundColor: "#141414",
 				color: "white",
 			}}>
 			<Typography>Ixtiyor Baltayev © {format(new Date(), "yyyy")} All Right Reserved</Typography>
