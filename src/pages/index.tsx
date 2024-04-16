@@ -1,8 +1,13 @@
 import { Content, Hero, Sidebar } from "@/components/index";
 import { Box } from "@mui/material";
 import Layout from "./../layout/layout";
+import { GetServerSideProps } from "next";
+import { BlogService } from "./../components/services/blog.services";
+import { BlogsType } from "./../components/interface/blogs.interface";
 
-const HomePage = () => {
+const HomePage = ({ blogs }: HomePageProps) => {
+	console.log({ blogs });
+
 	return (
 		<Layout>
 			<Hero></Hero>
@@ -15,3 +20,16 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+export const getServerSideProps: GetServerSideProps<HomePageProps> = async () => {
+	const blogs = await BlogService.getAllblogs();
+	return {
+		props: {
+			blogs,
+		},
+	};
+};
+
+interface HomePageProps {
+	blogs: BlogsType[];
+}

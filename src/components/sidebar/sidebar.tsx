@@ -20,6 +20,7 @@ const Sidebar = () => {
 										width={100}
 										height={100}
 										style={{ objectFit: "cover", borderRadius: "8px" }}
+										priority
 									/>
 									<Box sx={{ display: "flex", flexDirection: "column", gap: "10px" }}>
 										<Typography variant="body1">{item.title}</Typography>

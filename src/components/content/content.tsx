@@ -10,14 +10,20 @@ const Content = () => {
 					key={item.image}
 					sx={{
 						backgroundColor: "rgb(200 200 200 / 50%)",
-						"&:first-child": { marginTop: 0 },
+						"&:first-of-type": { marginTop: 0 },
 						marginTop: "20px",
 						padding: "10px",
 						borderRadius: "5px",
 						boxShadow: 1,
 					}}>
 					<Box position={"relative"} width={"100%"} height={{ xs: "30vh", md: "50vh" }}>
-						<Image src={item.image} alt={item.title} fill style={{ objectFit: "cover", borderRadius: "5px" }} />
+						<Image
+							src={item.image}
+							alt={item.title}
+							fill
+							style={{ objectFit: "cover", borderRadius: "5px" }}
+							priority
+						/>
 					</Box>
 					<Box>
 						<Typography variant="h4" marginTop={"30px"}>
