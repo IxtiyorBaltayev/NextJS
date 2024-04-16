@@ -54,15 +54,15 @@ const Hero = () => {
 							<Box
 								sx={{
 									position: "relative",
-									width: { xs: "100%", sm: "70%" },
+									width: { xs: "100%", md: "70%" },
 									top: "50%",
 									transform: "translateY(-50%)",
-									paddingLeft: { xs: "10px", sm: "50px" },
+									paddingLeft: { xs: "10px", md: "50px" },
 									color: "white",
 									zIndex: "999",
 								}}>
-								<Typography variant="h2">{item.title}</Typography>
-								<Typography variant="h5">{item.exerpt}</Typography>
+								<Typography sx={{ fontSize: { xs: "35px", md: "50px" } }}>{item.title}</Typography>
+								<Typography sx={{ fontSize: { xs: "20px", md: "25px" } }}>{item.exerpt}</Typography>
 								<Box sx={{ display: "flex", alignItems: "center", gap: "10px", marginTop: "20px" }}>
 									<Avatar alt={item.author.name} src={item.author.image} />
 									<Box>
