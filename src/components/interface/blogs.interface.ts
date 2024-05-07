@@ -3,10 +3,11 @@ export interface BlogsType {
 	id: string;
 	slug: string;
 	title: string;
+	createdAt: Date;
 	image: {
 		url: string;
 	};
-	authors: {
+	author: {
 		name: string;
 		avatar: {
 			url: string;

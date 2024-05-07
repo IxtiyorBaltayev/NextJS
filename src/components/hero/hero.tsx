@@ -3,30 +3,9 @@ import Image from "next/image";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { format } from "date-fns";
+import { HeroProps } from "./hero.props";
 
-const Hero = () => {
-	const data = [
-		{
-			image: "https://media.graphassets.com/MxJZhmooRRuudoErkQ38",
-			title: "Technical SEO with Hygraph",
-			exerpt: "Get started with your SEO implementation when using a Headless CMS",
-			author: {
-				name: "Ixtiyor Baltayev",
-				image:
-					"https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yWFoybW9UMlVwSEJOWjlDTDZqcmRJOU8yWGgifQ?width=80",
-			},
-		},
-		{
-			image: "https://media.graphassets.com/bh3K2NNtTHCN260Xfq9h",
-			title: "Union Types and Sortable Relations with Hygraph",
-			exerpt: "Learn more about Polymorphic Relations and Sortable Relations with Hygraph",
-			author: {
-				name: "Ixtiyor Baltayev",
-				image:
-					"https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18yWFoybW9UMlVwSEJOWjlDTDZqcmRJOU8yWGgifQ?width=80",
-			},
-		},
-	];
+const Hero = ({ blogs }: HeroProps) => {
 	return (
 		<Box width={"100%"} height={"70vh"}>
 			<Carousel
@@ -36,10 +15,10 @@ const Hero = () => {
 						items: 1,
 					},
 				}}>
-				{data.map((item) => (
-					<Box key={item.image}>
+				{blogs.map((item) => (
+					<Box key={item.id}>
 						<Box sx={{ position: "relative", width: "100%", height: "70vh" }}>
-							<Image src={item.image} alt={item.title} fill style={{ objectFit: "cover" }} priority />
+							<Image src={item.image.url} alt={item.title} fill style={{ objectFit: "cover" }} priority />
 							<Box
 								sx={{
 									position: "absolute",
@@ -64,10 +43,12 @@ const Hero = () => {
 								<Typography sx={{ fontSize: { xs: "35px", md: "50px" } }}>{item.title}</Typography>
 								<Typography sx={{ fontSize: { xs: "20px", md: "25px" } }}>{item.exerpt}</Typography>
 								<Box sx={{ display: "flex", alignItems: "center", gap: "10px", marginTop: "20px" }}>
-									<Avatar alt={item.author.name} src={item.author.image} />
+									<Avatar alt={item.author.name} src={item.author.avatar.url} />
 									<Box>
 										<Typography>{item.author.name}</Typography>
-										<Typography sx={{ fontSize: "13px" }}>{format(new Date(), "dd MMM, yyyy")}</Typography>
+										<Typography sx={{ fontSize: "13px" }}>
+											{format(new Date(item.createdAt), "dd MMM, yyyy")}
+										</Typography>
 									</Box>
 								</Box>
 							</Box>
