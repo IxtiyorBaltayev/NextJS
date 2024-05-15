@@ -71,4 +71,37 @@ export const BlogService = {
 		const result = await request<{ categories: CategoryType[] }>(graphqlAPI, query);
 		return result.categories;
 	},
+
+	async getDetailedBlog(slug: string) {
+		const query = gql`
+			query GetDetailedBlog($slug: String!) {
+				blog(where: { slug: $slug }) {
+					excerpt
+					id
+					slug
+					title
+					createdAt
+					image {
+						url
+					}
+					author {
+						name
+						avatar {
+							url
+						}
+					}
+					category {
+						label
+						slug
+					}
+					description {
+						html
+						text
+					}
+				}
+			}
+		`;
+		const result = await request<{ blog: BlogsType[] }>(graphqlAPI, query, { slug });
+		return result.blog;
+	},
 };

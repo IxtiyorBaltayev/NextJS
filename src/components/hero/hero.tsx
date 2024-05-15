@@ -41,7 +41,7 @@ const Hero = ({ blogs }: HeroProps) => {
 									zIndex: "999",
 								}}>
 								<Typography sx={{ fontSize: { xs: "35px", md: "50px" } }}>{item.title}</Typography>
-								<Typography sx={{ fontSize: { xs: "20px", md: "25px" } }}>{item.exerpt}</Typography>
+								<Typography sx={{ fontSize: { xs: "20px", md: "25px" } }}>{item.excerpt}</Typography>
 								<Box sx={{ display: "flex", alignItems: "center", gap: "10px", marginTop: "20px" }}>
 									<Avatar alt={item.author.name} src={item.author.avatar.url} />
 									<Box>

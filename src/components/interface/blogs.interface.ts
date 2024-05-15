@@ -1,5 +1,5 @@
 export interface BlogsType {
-	exerpt: string;
+	excerpt: string;
 	id: string;
 	slug: string;
 	title: string;
@@ -16,5 +16,9 @@ export interface BlogsType {
 	category: {
 		label: string;
 		slug: string;
+	};
+	description: {
+		text: string;
+		html: string;
 	};
 }

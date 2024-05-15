@@ -1,9 +1,12 @@
 import { Avatar, Box, Divider, Typography } from "@mui/material";
 import { formatDate } from "date-fns/format";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { ContentProps } from "./content.props";
 
 const Content = ({ blogs }: ContentProps) => {
+	const router = useRouter();
+
 	return blogs ? (
 		<Box width={{ xs: "100%", md: "70%" }}>
 			{blogs.map((item) => (
@@ -16,6 +19,10 @@ const Content = ({ blogs }: ContentProps) => {
 						padding: "10px",
 						borderRadius: "5px",
 						boxShadow: 1,
+						cursor: "pointer",
+					}}
+					onClick={() => {
+						router.push(`/blog/${item.slug}`);
 					}}>
 					<Box position={"relative"} width={"100%"} height={{ xs: "30vh", md: "50vh" }}>
 						<Image
@@ -31,7 +38,7 @@ const Content = ({ blogs }: ContentProps) => {
 							{item.title}
 						</Typography>
 						<Typography variant="body1" color={"gray"}>
-							{item.exerpt}
+							{item.excerpt}
 						</Typography>
 						<Divider sx={{ marginTop: "30px" }} />
 						<Box sx={{ display: "flex", alignItems: "center", gap: "10px", marginTop: "20px" }}>
