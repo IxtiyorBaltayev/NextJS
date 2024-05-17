@@ -13,7 +13,7 @@ const DetailedBlogsPage = ({ blog, categories, latestBlogs }: DetailedBlogsPageP
 	return (
 		<Layout>
 			<Box sx={{ display: "flex", flexDirection: { xs: "column", md: "row" }, gap: "20px", padding: "20px" }}>
-				<Box width={{ xs: "100%", md: "70%" }}>
+				<Box width={{ xs: "100%", md: "70%" }} sx={{ marginTop: "10px" }}>
 					<Box
 						sx={{ backgroundColor: "white", padding: "20px", boxShadow: 2 }}
 						position={"relative"}
